@@ -1,0 +1,16 @@
+{
+  "name": "Alfredo M. Velayo College of Accountancy",
+  "symbol": "AMV-CoA",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/UST-Alfredo-M.-Velayo-College-of-Accountancy.png?alt=media&token=449dbdb7-974e-49e0-8ff6-8604ea4039d9",
+  "description": "This token represents membership for the Alfredo M. Velayo College of Accountancy of the University of Santo Tomas.",
+  "attributes": [
+    {
+      "trait_type": "College",
+      "value": "Alfredo M. Velayo College of Accountancy"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Albertus Magnus"
+    }
+  ]
+}
