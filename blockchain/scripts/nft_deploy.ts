@@ -1,9 +1,13 @@
 import { ethers } from "hardhat";
 import { expect } from "chai";
+import { ALCHEMY_API_KEY, GOERLI_INFURA_PROJECT_ID, PRIVATE_KEY, SEPOLIA_INFURA_PROJECT_ID } from "../constants";
 
-const provider = new ethers.providers.JsonRpcProvider("https://goerli.infura.io/v3/4b65da1fb2be4e45aaf60782c5a305f8");
+const MUMBAI_RPC_URL = `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_API_KEY}`;
 
-const wallet = new ethers.Wallet("95d37e1c6710bda12a11b749ea7f30c68b1aeaf7f49bc19e518e4e31bc2c5eb7", provider);
+// Change to GOERLI_INFURA_PROJECT_ID or SEPOLIA_INFURA_PROJECT_ID depending on deployment
+const provider = new ethers.providers.JsonRpcProvider(MUMBAI_RPC_URL);
+
+const wallet = new ethers.Wallet(PRIVATE_KEY, provider);
 
 async function main() {
   const [deployer] = await ethers.getSigners();
@@ -15,7 +19,11 @@ async function main() {
   const college = await CollegeFactory.deploy();
   await college.deployed();
 
+  const receipt = await college.deployTransaction.wait();
+  const gasUsed = receipt.gasUsed.toString();
+
   console.log("Contract address college deployed to:", college.address);
+  console.log(`Gas used: ${gasUsed}`);
 
   // Test the contract
   const CICS = 1;
