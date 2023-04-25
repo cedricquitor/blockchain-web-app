@@ -3,6 +3,17 @@ This project has two applications:
 - [blockchain](#polygon-app-solidity-hardhat-ethers---blockchain)
 - [client](#react-app---client)
 
+This project is still a work in progress, click [here](#todos) to view the list of TODO's
+
+## TODO's
+### blockchain TODO's
+- Voting Contract
+
+### client TODO's
+- MetaMask Connection Page
+- NFT Minting Page
+- Voting Page
+
 ## Installation
 To clone the repository:
 
