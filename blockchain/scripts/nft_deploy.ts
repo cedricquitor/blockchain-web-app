@@ -30,6 +30,21 @@ async function main() {
   // Test the contract
   const CICS = 1;
   const AMV_COA = 2;
+  const Architecture = 3;
+  const Arts_and_Letters = 4;
+  const Civil_Law = 5;
+  const CBA = 6;
+  const CoE = 7;
+  const FoE = 8;
+  const CFAD = 9;
+  const Medicine_and_Surgery = 10;
+  const Music = 11;
+  const Nursing = 12;
+  const FoP = 13;
+  const IPEA = 14;
+  const CRS = 15;
+  const CoS = 16;
+  const CTHM = 17;
 
   expect(await college.balanceOf(deployer.address, CICS)).to.equal(1);
   expect(await college.balanceOf(deployer.address, AMV_COA)).to.equal(1);
