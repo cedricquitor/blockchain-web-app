@@ -27,6 +27,33 @@ npx hardhat run scripts/nft_deploy.ts --network mumbai
 ```
 
 ### How to get your MetaMask private key
+1. Head to your MetaMask account
+2. Click the kebab menu (three dots) on the furthest right
+3. Click Account details
+![image](https://user-images.githubusercontent.com/89262762/234272783-6885406e-298e-4e48-8fbd-5cbfce74e9cf.png)
+4. Click Export private key
+5. Type in your MetaMask password
+6. Copy your private key (red text)
+7. Paste it in your .env file and name it PRIVATE_KEY
+
+**Note**: Make sure you're in Polygon's Mumbai Testnet ([*How to add Mumbai Testnet*](#how-to-add-polygons-mumbai-testnet))
+
+### How to add Polygon's Mumbai Testnet
+1. Head to your MetaMask browser extension
+2. Click your current network
+![image](https://user-images.githubusercontent.com/89262762/234273391-1ba72845-f6ce-4114-8b69-0dd8641bd9e0.png)
+3. Click Add network
+4. On the bottom part of the page, click Add a network manually
+![image](https://user-images.githubusercontent.com/89262762/234273639-cbf63f5d-c944-451e-9cfa-10bf8a7484c0.png)
+5. Fill the form with the following details:
+
+| Syntax             | Description                        |
+|--------------------|------------------------------------|
+| Network Name       | Mumbai Testnet                     |
+| New RPC URL        | https://rpc-mumbai.maticvigil.com/ |
+| Chain ID           | 80001                              |
+| Currency Symbol    | MATIC                              |
+| Block Explorer URL | https://polygonscan.com/           |
 
 ## React App - client
 ### Environment Variables
