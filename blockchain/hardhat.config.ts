@@ -1,5 +1,6 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import { ALCHEMY_API_KEY, GOERLI_INFURA_PROJECT_ID, PRIVATE_KEY, SEPOLIA_INFURA_PROJECT_ID } from "./constants";
 
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   const accounts = await hre.ethers.getSigners();
@@ -15,10 +16,17 @@ const config: HardhatUserConfig = {
     localhost: {
       url: "http://127.0.0.1:8545",
     },
+    mumbai: {
+      url: `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
+      accounts: [PRIVATE_KEY],
+    },
     goerli: {
-      url: "https://goerli.infura.io/v3/4b65da1fb2be4e45aaf60782c5a305f8",
-      accounts: ["95d37e1c6710bda12a11b749ea7f30c68b1aeaf7f49bc19e518e4e31bc2c5eb7"],
-      gasPrice: 20000000000, // 20 gwei
+      url: GOERLI_INFURA_PROJECT_ID,
+      accounts: [PRIVATE_KEY],
+    },
+    sepolia: {
+      url: SEPOLIA_INFURA_PROJECT_ID,
+      accounts: [PRIVATE_KEY],
     },
   },
 };
