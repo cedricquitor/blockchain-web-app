@@ -1,6 +1,6 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
-import { ALCHEMY_API_KEY, GOERLI_INFURA_PROJECT_ID, PRIVATE_KEY, SEPOLIA_INFURA_PROJECT_ID } from "./constants";
+import { ALCHEMY_API_KEY, PRIVATE_KEY } from "./constants";
 
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   const accounts = await hre.ethers.getSigners();
@@ -18,14 +18,6 @@ const config: HardhatUserConfig = {
     },
     mumbai: {
       url: `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
-      accounts: [PRIVATE_KEY],
-    },
-    goerli: {
-      url: GOERLI_INFURA_PROJECT_ID,
-      accounts: [PRIVATE_KEY],
-    },
-    sepolia: {
-      url: SEPOLIA_INFURA_PROJECT_ID,
       accounts: [PRIVATE_KEY],
     },
   },
