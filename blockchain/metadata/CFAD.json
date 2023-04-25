@@ -1,0 +1,17 @@
+{
+  "id": "College-of-Fine-Arts-and-Design",
+  "name": "College of Fine Arts and Design",
+  "symbol": "CFAD",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/College-of-Fine-Arts-and-Design.png?alt=media&token=b755d9b2-ccb9-4776-8778-18629d00f342",
+  "description": "This token represents membership for the College of Fine Arts and Design",
+  "attributes": [
+    {
+      "trait_type": "College",
+      "value": "College of Fine Arts and Design"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Beato Angelico"
+    }
+  ]
+}

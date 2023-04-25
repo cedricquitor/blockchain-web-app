@@ -1,0 +1,17 @@
+{
+  "id": "Graduate-School-of-Law",
+  "name": "Graduate School of Law",
+  "symbol": "School of Law",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/Graduate-School-of-Law.png?alt=media&token=33094a09-c314-4dd6-b2ca-c47c8aee7fac",
+  "description": "This token represents membership for the Graduate School of Law",
+  "attributes": [
+    {
+      "trait_type": "Graduate",
+      "value": "Graduate School of Law"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Benavides"
+    }
+  ]
+}

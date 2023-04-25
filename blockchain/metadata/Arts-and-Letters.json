@@ -1,0 +1,17 @@
+{
+  "id": "Faculty-of-Arts-and-Letters",
+  "name": "Faculty of Arts and Letters",
+  "symbol": "Arts and Letters",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/Faculty-of-Arts-and-Letters.png?alt=media&token=623c4758-d307-46a2-bbd5-15fab1f79564",
+  "description": "This token represents membership for the Faculty of Arts and Letters",
+  "attributes": [
+    {
+      "trait_type": "Faculty",
+      "value": "Faculty Arts and Letters"
+    },
+    {
+      "trait_type": "Building",
+      "value": "St. Raymund de Peñafort"
+    }
+  ]
+}

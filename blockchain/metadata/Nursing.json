@@ -1,0 +1,17 @@
+{
+  "id": "College-of-Nursing",
+  "name": "College of Nursing",
+  "symbol": "College of Nursing",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/College-of-Nursing.png?alt=media&token=fa21d7c0-8442-4d01-82e6-cdb47f2d7e3a",
+  "description": "This token represents membership for the College of Nursing",
+  "attributes": [
+    {
+      "trait_type": "College",
+      "value": "College of Nursing"
+    },
+    {
+      "trait_type": "Building",
+      "value": "St. Martin de Porres"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "Graduate-School",
+  "name": "Graduate School",
+  "symbol": "Graduate School",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/Graduate-School.png?alt=media&token=c98dcd9e-a108-40a7-b2c5-83dc0d618a79",
+  "description": "This token represents membership for the Graduate School",
+  "attributes": [
+    {
+      "trait_type": "Gradauate",
+      "value": "Graduate School"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Thomas Aquinas Research Complex"
+    }
+  ]
+}

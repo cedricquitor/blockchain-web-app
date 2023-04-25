@@ -1,0 +1,17 @@
+{
+  "id": "College-of-Science",
+  "name": "College of Science",
+  "symbol": "CoS",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/College-of-Science.png?alt=media&token=88f43a58-ad5f-4e19-8632-4e7d1a290787",
+  "description": "This token represents membership for the College of Science",
+  "attributes": [
+    {
+      "trait_type": "College",
+      "value": "College of Science"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Main Building"
+    }
+  ]
+}

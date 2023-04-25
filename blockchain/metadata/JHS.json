@@ -1,0 +1,17 @@
+{
+  "id": "Junior-High-School",
+  "name": "Junior High School",
+  "symbol": "JHS",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/Junior-High-School.png?alt=media&token=04b99d66-aaea-4de4-8206-28ad9f6bf6a0",
+  "description": "This token represents membership for Junior High School",
+  "attributes": [
+    {
+      "trait_type": "High School",
+      "value": "Junior High School"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Benavides"
+    }
+  ]
+}

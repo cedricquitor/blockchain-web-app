@@ -1,0 +1,17 @@
+{
+  "id": "Faculty-of-Medicine-and-Surgery",
+  "name": "Faculty of Medicine and Surgery",
+  "symbol": "Medicine and Surgery",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/Faculty-of-Medicine-and-Surgery.png?alt=media&token=938684e6-fcd9-45b9-8ca4-3306abd9d423",
+  "description": "This token represents membership for the Faculty of Medicine and Surgery",
+  "attributes": [
+    {
+      "trait_type": "Faculty",
+      "value": "Faculty of Medicine and Surgery"
+    },
+    {
+      "trait_type": "Building",
+      "value": "St. Martin de Porres"
+    }
+  ]
+}

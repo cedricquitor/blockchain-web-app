@@ -1,0 +1,17 @@
+{
+  "id": "College-of-Tourism-and-Hospitality-Management",
+  "name": "College of Tourism and Hospitality Management",
+  "symbol": "CTHM",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/College-of-Tourism-and-Hospitality-Management.png?alt=media&token=1bfaa32d-74fa-4fc1-81e1-ed9932e3e442",
+  "description": "This token represents membership for the College of Tourism and Hospitality Management",
+  "attributes": [
+    {
+      "trait_type": "College",
+      "value": "College of Tourism and Hospitality Management"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Buenaventura G. Paredes, O.P."
+    }
+  ]
+}

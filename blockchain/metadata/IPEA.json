@@ -1,0 +1,17 @@
+{
+  "id": "Institute-of-Physical-Education-and-Athletics",
+  "name": "Institute of Physical Education and Athletics",
+  "symbol": "IPEA",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/Institute-of-Physical-Education-and-Athletics.png?alt=media&token=2d19ffd3-09cc-464c-8837-62e2e53aadfa",
+  "description": "This token represents membership for the Institute of Physical Education and Athletics",
+  "attributes": [
+    {
+      "trait_type": "Institute",
+      "value": "Institute of Physical Education and Athletics"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Quadricentennial Pavilion"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "Faculty-of-Canon-Law",
+  "name": "Faculty of Canon Law",
+  "symbol": "Canon Law",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/Faculty-of-Canon-Law.png?alt=media&token=b976a317-0536-4a99-849d-f65c3a12d095",
+  "description": "This token represents membership for the Faculty of Canon Law",
+  "attributes": [
+    {
+      "trait_type": "Faculty",
+      "value": "Faculty of Canon Law"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Central Seminary"
+    }
+  ]
+}

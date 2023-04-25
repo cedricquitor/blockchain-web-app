@@ -1,0 +1,17 @@
+{
+  "id": "Senior-High-School",
+  "name": "Senior High School",
+  "symbol": "SHS",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/Senior-High-School.png?alt=media&token=80fe17f1-89dc-4daf-93bc-d53e7030971d",
+  "description": "This token represents membership for Senior High School",
+  "attributes": [
+    {
+      "trait_type": "High School",
+      "value": "Senior High School"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Buenaventura G. Paredes, O.P."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "Conservatory-of-Music",
+  "name": "Conservatory of Music",
+  "symbol": "Conservatory of Music",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/Conservatory-of-Music.png?alt=media&token=94aea211-4069-4c53-813e-1490d41885ba",
+  "description": "This token represents membership for the Conservatory of Music",
+  "attributes": [
+    {
+      "trait_type": "College",
+      "value": "Conservatory of Music"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Albertus Magnus"
+    }
+  ]
+}

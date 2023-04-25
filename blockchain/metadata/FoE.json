@@ -1,0 +1,17 @@
+{
+  "id": "Faculty-of-Engineering",
+  "name": "Faculty of Engineering",
+  "symbol": "FoE",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/Faculty-of-Engineering.png?alt=media&token=8611894c-70ae-4c79-8a87-922677d8b24a",
+  "description": "This token represents membership for the Faculty of Engineering",
+  "attributes": [
+    {
+      "trait_type": "Faculty",
+      "value": "Faculty of Engineering"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Roque Ruaño"
+    }
+  ]
+}

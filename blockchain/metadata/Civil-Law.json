@@ -1,0 +1,17 @@
+{
+  "id": "Faculty-of-Civil-Law",
+  "name": "Faculty of Civil Law",
+  "symbol": "Civil Law",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/Faculty-of-Civil-Law.png?alt=media&token=a4ad307a-6d31-441f-8cb4-c20a9d5bfc3c",
+  "description": "This token represents membership for the Faculty of Civil Law",
+  "attributes": [
+    {
+      "trait_type": "Faculty",
+      "value": "Faculty of Civil Law"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Main Building"
+    }
+  ]
+}

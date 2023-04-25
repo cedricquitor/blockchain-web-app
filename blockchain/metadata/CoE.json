@@ -1,0 +1,17 @@
+{
+  "id": "College-of-Education",
+  "name": "College of Education",
+  "symbol": "CoE",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/College-of-Education.png?alt=media&token=5f0910af-1872-4c80-adf1-0133184497da",
+  "description": "This token represents membership for the College of Education",
+  "attributes": [
+    {
+      "trait_type": "College",
+      "value": "College of Education"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Albertus Magnus"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "Faculty-of-Pharmacy",
+  "name": "Faculty of Pharmacy",
+  "symbol": "FoP",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/Faculty-of-Pharmacy.png?alt=media&token=7e8e40af-c8f3-4586-afd1-9d283241ea64",
+  "description": "This token represents membership for the Faculty of Pharmacy",
+  "attributes": [
+    {
+      "trait_type": "Faculty",
+      "value": "Faculty of Pharmacy"
+    },
+    {
+      "trait_type": "Building",
+      "value": "Main Building"
+    }
+  ]
+}

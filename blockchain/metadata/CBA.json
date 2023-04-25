@@ -1,0 +1,17 @@
+{
+  "id": "College-of-Commerce-and-Business-Administration",
+  "name": "College of Commerce and Business Administration",
+  "symbol": "CBA",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/College-of-Commerce-and-Business-Administration.png?alt=media&token=05dc2ce4-754e-4977-be30-44312fb7a474",
+  "description": "This token represents membership for the College of Commerce and Business Administration",
+  "attributes": [
+    {
+      "trait_type": "College",
+      "value": "College of Commerce and Business Administration"
+    },
+    {
+      "trait_type": "Building",
+      "value": "St. Raymund of Peñafort"
+    }
+  ]
+}

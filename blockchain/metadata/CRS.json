@@ -1,0 +1,17 @@
+{
+  "id": "College-of-Rehabilitation-Sciences",
+  "name": "College of Rehabilitation Sciences",
+  "symbol": "CRS",
+  "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/College-of-Rehabilitation-Sciences.png?alt=media&token=617d06ef-2b02-4a22-bcc4-9895acafa8a1",
+  "description": "This token represents membership for the College of Rehabilitation Sciences",
+  "attributes": [
+    {
+      "trait_type": "College",
+      "value": "College of Rehabilitation Sciences"
+    },
+    {
+      "trait_type": "Building",
+      "value": "San Martin de Porres"
+    }
+  ]
+}
