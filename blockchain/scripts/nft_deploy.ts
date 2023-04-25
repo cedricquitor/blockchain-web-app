@@ -23,6 +23,8 @@ async function main() {
   const gasUsed = receipt.gasUsed.toString();
 
   console.log("Contract address college deployed to:", college.address);
+  console.log(`View contract on polygonscan: https://mumbai.polygonscan.com/address/${college.address}`);
+  console.log(`View collection on OpenSea: https://testnets.opensea.io/assets/mumbai/${college.address}`);
   console.log(`Gas used: ${gasUsed}`);
 
   // Test the contract
