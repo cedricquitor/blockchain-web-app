@@ -1,7 +1,7 @@
 {
   "colleges": [
     {
-      "id": "College-of-Information-and-Computing-Sciences",
+      "id": 1,
       "name": "College of Information and Computing Sciences",
       "symbol": "CICS",
       "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/College-of-Information-and-Computing-Sciences.png?alt=media&token=df218686-54f9-4095-9cf9-5f09e9d4b7c8",
@@ -18,7 +18,7 @@
       ]
     },
     {
-      "id": "UST-Alfredo-M.-Velayo-College-of-Accountancy",
+      "id": 2,
       "name": "Alfredo M. Velayo College of Accountancy",
       "symbol": "AMV-CoA",
       "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/UST-Alfredo-M.-Velayo-College-of-Accountancy.png?alt=media&token=449dbdb7-974e-49e0-8ff6-8604ea4039d9",
@@ -34,5 +34,17 @@
         }
       ]
     }
-  ]
+  ],
+  "posts": [
+    { "id": 1, "title": "Post 1" },
+    { "id": 2, "title": "Post 2" },
+    { "id": 3, "title": "Post 3" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 },
+    { "id": 2, "body": "some comment", "postId": 1 }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }
