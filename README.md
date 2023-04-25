@@ -22,6 +22,14 @@ Navigate to the directory where you plan to clone the project in.
 git clone https://github.com/cedricquitor/blockchain-web-app.git
 ```
 
+### Setup blockchain's Environment Variables
+1. Create a .env file in blockchain/
+2. Click [here](#environment-variables) for Environment Variables setup instructions
+
+### Setup client's Environment Variables
+1. Create a .env file in client/
+2. Click [here](#environment-variables-1) for Environment Variables setup instructions
+
 ## Polygon App (Solidity, Hardhat, Ethers) - blockchain
 ### Environment Variables
 - ALCHEMY_API_KEY: Contact collaborators or [@cedricquitor](https://github.com/cedricquitor/blockchain-web-app)
