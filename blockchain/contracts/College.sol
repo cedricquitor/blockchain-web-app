@@ -24,14 +24,14 @@ contract College is ERC1155, Ownable {
     uint256 public constant CoS = 16;
     uint256 public constant CTHM = 17;
 
+    bool public hasUserMinted = false;
+
     // Define the constructor function
     constructor()
         ERC1155(
             "https://my-json-server.typicode.com/cedricquitor/blockchain-web-app/colleges/{id}"
         )
     {
-        // Mint some tokens and assign them to the contract deployer
-        // Test Minting: Make sure to only mint one in production
         _mint(msg.sender, CICS, 1, "");
         _mint(msg.sender, AMV_COA, 1, "");
         _mint(msg.sender, Architecture, 1, "");
@@ -58,8 +58,15 @@ contract College is ERC1155, Ownable {
         uint256 amount,
         bytes memory data
     ) public onlyOwner {
+        // Make sure the college id is valid
+        require(id >= 1 && id <= 17, "Invalid college id!");
+
+        // Make sure the user has only one NFt
+        require(hasUserMinted == false, "User has already minted an NFT!");
+
         // Call the _mint function from the ERC1155 contract
         _mint(account, id, amount, data);
+        hasUserMinted = true;
     }
 
     // Define a function to burn tokens
@@ -73,5 +80,6 @@ contract College is ERC1155, Ownable {
 
         // Call the _burn function from the ERC1155 contract
         _burn(account, id, amount);
+        hasUserMinted = false;
     }
 }
