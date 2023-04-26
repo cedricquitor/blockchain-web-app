@@ -3,15 +3,21 @@ import { expect } from "chai";
 import { College } from "../typechain-types";
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 
-describe("College contract", function () {
+describe("College contract", () => {
   let college: College;
   let deployer: SignerWithAddress;
 
-  before("should deploy", async () => {
+  before(async () => {
     [deployer] = await ethers.getSigners();
     const CollegeFactory = await ethers.getContractFactory("College");
     college = await CollegeFactory.deploy();
     await college.deployed();
+  });
+
+  it("should reject minting an NFT with invalid id", async () => {
+    await expect(college.mint(deployer.address, 99, 1, [])).to.be.rejectedWith(
+      "Invalid college id!"
+    );
   });
 
   it("should mint an NFT", async () => {

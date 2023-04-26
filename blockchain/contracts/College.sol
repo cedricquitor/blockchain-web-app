@@ -61,7 +61,7 @@ contract College is ERC1155, Ownable {
         // Make sure the college id is valid
         require(id >= 1 && id <= 17, "Invalid college id!");
 
-        // Make sure the user has only one NFt
+        // Make sure the user has only one NFT
         require(hasUserMinted == false, "User has already minted an NFT!");
 
         // Call the _mint function from the ERC1155 contract
