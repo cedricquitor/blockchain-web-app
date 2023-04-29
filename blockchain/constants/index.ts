@@ -3,8 +3,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 let alchemyApiKey: string;
-let sepoliaInfuraProjId: string;
-let goerliInfuraProjId: string;
 let privateKey: string;
 
 if (process.env.ALCHEMY_API_KEY) {

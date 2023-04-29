@@ -24,7 +24,7 @@ contract College is ERC1155, Ownable {
     uint256 public constant CoS = 16;
     uint256 public constant CTHM = 17;
 
-    bool public hasUserMinted = false;
+    mapping(address => bool) public hasMinted;
 
     // Define the constructor function
     constructor()
@@ -57,16 +57,19 @@ contract College is ERC1155, Ownable {
         uint256 id,
         uint256 amount,
         bytes memory data
-    ) public onlyOwner {
+    ) public {
         // Make sure the college id is valid
         require(id >= 1 && id <= 17, "Invalid college id!");
 
         // Make sure the user has only one NFT
-        require(hasUserMinted == false, "User has already minted an NFT!");
+        require(
+            !hasMinted[account] == false,
+            "User has already minted an NFT!"
+        );
 
         // Call the _mint function from the ERC1155 contract
         _mint(account, id, amount, data);
-        hasUserMinted = true;
+        hasMinted[account] = true;
     }
 
     // Define a function to burn tokens
