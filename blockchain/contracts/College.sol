@@ -82,4 +82,17 @@ contract College is ERC1155, Ownable {
         _burn(account, id, amount);
         hasUserMinted = false;
     }
+
+    function checkNFTOwnership(address account, uint256 id)
+        public
+        view
+        returns (bool)
+    {
+        uint256 balance = balanceOf(account, id);
+        return (balance > 0);
+    }
+
+    function test() public pure returns (string memory) {
+        return "Connected to College smart contract!";
+    }
 }
