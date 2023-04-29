@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AccountContext } from "../context/AccountContext";
 import UstLogo from "../assets/ust_logo.svg";
 import Navlink from "./Navlink";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { currentAccount, setCurrentAccount } = useContext(AccountContext);
@@ -9,6 +10,7 @@ const Navbar = () => {
   const ethereum = window.ethereum;
 
   const connectToWallet = async () => {
+    console.log(currentAccount);
     try {
       if (!ethereum) {
         return;
@@ -36,16 +38,18 @@ const Navbar = () => {
 
   return (
     <nav className="bg-yellow fixed w-full z-20 top-0 left-0 border-b border-gray-200 shadow-md">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <div className="flex items-center">
-          <img src={UstLogo} className="h-8 mr-3" />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
-            BOTO
-          </span>
-          <span className="self-center text-2xl font-semibold whitespace-nowrap text-black">
-            masino
-          </span>
-        </div>
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4">
+        <Link to="/" className="cursor-pointer">
+          <div className="flex items-center">
+            <img src={UstLogo} className="h-8 mr-3" />
+            <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
+              BOTO
+            </span>
+            <span className="self-center text-2xl font-semibold whitespace-nowrap text-black">
+              masino
+            </span>
+          </div>
+        </Link>
         <div className="flex md:order-2">
           <button
             onClick={connectToWallet}
@@ -66,6 +70,7 @@ const Navbar = () => {
         >
           <Navlink to="/" text="Home" />
           <Navlink to="/" text="About" />
+          <Navlink to="/mint" text="Mint" />
         </div>
       </div>
     </nav>

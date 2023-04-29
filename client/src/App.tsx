@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AccountContextProvider } from "./context/AccountContext";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import Mint from "./pages/Mint";
 
 declare global {
   interface Window {
@@ -16,6 +17,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/mint" element={<Mint />} />
         </Routes>
       </BrowserRouter>
     </AccountContextProvider>
