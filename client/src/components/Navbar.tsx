@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-yellow fixed w-full z-20 top-0 left-0 border-b border-gray-200 shadow-md">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="cursor-pointer">
           <div className="flex items-center">
             <img src={UstLogo} className="h-8 mr-3" />
@@ -54,7 +54,7 @@ const Navbar = () => {
           <button
             onClick={connectToWallet}
             type="button"
-            className="bg-black text-white inline-flex items-center font-medium justify-center px-4 py-2 text-sm rounded-lg cursor-pointer hover:bg-white hover:text-black"
+            className="bg-black text-white inline-flex items-center font-medium justify-center px-4 py-2 text-sm rounded-lg cursor-pointer transition hover:bg-white hover:text-black"
           >
             {!currentAccount
               ? "Connect Wallet"
