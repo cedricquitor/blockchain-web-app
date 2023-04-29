@@ -1,6 +1,12 @@
 import { ethers } from "ethers";
 import College from "../utils/College.json";
 
+interface MintNftParams {
+  account: string;
+  id: number;
+  amount: number;
+}
+
 const provider = new ethers.JsonRpcProvider(
   import.meta.env.VITE_ALCHEMY_RPC_PROVIDER
 );
@@ -15,5 +21,15 @@ export const testContract = async () => {
     console.log("testContract Results: ", test);
   } catch (error) {
     console.error("testContract Error: ", error);
+  }
+};
+
+export const mintNft = async (params: MintNftParams) => {
+  const { account, id, amount } = params;
+  try {
+    const mint = await contract.mint(account, id, amount);
+    console.log("mintNft Result: ", mint);
+  } catch (error) {
+    console.error("mintNft Error: ", error);
   }
 };
