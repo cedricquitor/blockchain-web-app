@@ -89,5 +89,5 @@ npm install
 ```
 3. Run local dev server script
 ```bash
-npm dev
+npm run dev
 ```
