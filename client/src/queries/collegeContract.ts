@@ -2,9 +2,7 @@ import { ethers } from "ethers";
 import College from "../utils/College.json";
 
 interface MintNftParams {
-  account: string;
-  id: number;
-  amount: number;
+  (account: string, id: number, amount: number, data: string): void;
 }
 
 const provider = new ethers.JsonRpcProvider(
@@ -13,6 +11,7 @@ const provider = new ethers.JsonRpcProvider(
 const contractAddress = import.meta.env.VITE_CONTRACT_ADDRESS;
 const contractAbi = College.abi;
 const contract = new ethers.Contract(contractAddress, contractAbi, provider);
+
 console.log("Testing College smart contract...");
 
 export const testContract = async () => {
@@ -24,11 +23,10 @@ export const testContract = async () => {
   }
 };
 
-export const mintNft = async (params: MintNftParams) => {
-  const { account, id, amount } = params;
+export const mintNft: MintNftParams = async (account, id, amount, data) => {
   try {
-    const mint = await contract.mint(account, id, amount);
-    console.log("mintNft Result: ", mint);
+    const tx = await contract.mint(account, id, amount, data);
+    console.log("mintNft Result: ", tx.hash);
   } catch (error) {
     console.error("mintNft Error: ", error);
   }
