@@ -55,7 +55,6 @@ const Mint = () => {
 
   useEffect(() => {
     getCollegeNft();
-    console.log(import.meta.env.VITE_TEST_ENV);
   }, []);
 
   return (
