@@ -83,7 +83,7 @@ contract College is ERC1155, Ownable {
 
         // Call the _burn function from the ERC1155 contract
         _burn(account, id, amount);
-        hasUserMinted = false;
+        hasMinted[account] = false;
     }
 
     function checkNFTOwnership(address account, uint256 id)
