@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getNftDetail } from "../queries/jsonServer";
 import { mintNft, testContract } from "../queries/collegeContract";
+import { AccountContext } from "../context/AccountContext";
 
 interface TraitsProps {
   trait: string;
@@ -17,16 +18,6 @@ const Traits = (props: TraitsProps) => {
       <p>{value}</p>
     </div>
   );
-};
-
-const handleMintNft = async () => {
-  const response = await mintNft(
-    "0xf94B84670447aAf23e1B2289eaEE9CabfD9d274f",
-    4,
-    1,
-    ""
-  );
-  console.log(response);
 };
 
 const Mint = () => {
@@ -47,14 +38,24 @@ const Mint = () => {
   const [allNft, setAllNft] = useState([]);
   const [collegeNft, setCollegeNft] = useState<Partial<CollegeNft>>({});
 
+  const { currentAccount } = useContext(AccountContext);
+
   const getCollegeNft = async () => {
     const response = await getNftDetail(6);
     setCollegeNft(response);
     console.log(response);
   };
 
+  const handleMintNft = async () => {
+    if (currentAccount !== null) {
+      const response = await mintNft(currentAccount, 6, 1, "0x");
+      console.log(response);
+    }
+  };
+
   useEffect(() => {
     getCollegeNft();
+    console.log(import.meta.env.VITE_TEST_ENV);
   }, []);
 
   return (

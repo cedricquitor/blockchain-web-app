@@ -5,12 +5,11 @@ interface MintNftParams {
   (account: string, id: number, amount: number, data: string): void;
 }
 
-const provider = new ethers.JsonRpcProvider(
-  import.meta.env.VITE_ALCHEMY_RPC_PROVIDER
-);
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+const signer = provider.getSigner();
 const contractAddress = import.meta.env.VITE_CONTRACT_ADDRESS;
 const contractAbi = College.abi;
-const contract = new ethers.Contract(contractAddress, contractAbi, provider);
+const contract = new ethers.Contract(contractAddress, contractAbi, signer);
 
 console.log("Testing College smart contract...");
 

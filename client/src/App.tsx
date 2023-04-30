@@ -4,12 +4,6 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Mint from "./pages/Mint";
 
-declare global {
-  interface Window {
-    ethereum?: any;
-  }
-}
-
 function App() {
   return (
     <AccountContextProvider>
