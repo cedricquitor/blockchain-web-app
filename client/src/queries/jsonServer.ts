@@ -7,3 +7,13 @@ export const getNftDetail = async (id: number) => {
 
   return data;
 };
+
+export const getAllNftDetail = async () => {
+  const response = await fetch(
+    "https://my-json-server.typicode.com/cedricquitor/blockchain-web-app/colleges/"
+  );
+
+  const data = response.json();
+
+  return data;
+};
