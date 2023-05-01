@@ -10,8 +10,6 @@ This project is still a work in progress, click [here](#todos) to view the list 
 - Voting Contract
 
 ### client TODO's
-- MetaMask Connection Page
-- NFT Minting Page
 - Voting Page
 
 ## Installation
