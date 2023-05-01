@@ -5,6 +5,9 @@ import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract College is ERC1155, Ownable {
+    // Contract Public Name
+    string public name = "BOTOmasino";
+
     // Define some token IDs as constants
     uint256 public constant CICS = 1;
     uint256 public constant AMV_COA = 2;
