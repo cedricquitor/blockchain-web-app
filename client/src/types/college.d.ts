@@ -11,3 +11,8 @@ export interface Attribute {
   trait_type: string;
   value: string;
 }
+
+export interface Transaction {
+  polygonScanUrl: string;
+  openSeaUrl: string;
+}

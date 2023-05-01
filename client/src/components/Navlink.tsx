@@ -13,7 +13,7 @@ const Navlink = (props: NavlinkProps) => {
       <li>
         <Link
           to={to}
-          className="block py-2 pl-3 pr-4 text-black md:text-blue-700 md:p-0 transition hover:text-white"
+          className="block py-2 pl-3 pr-4 text-black md:p-0 transition hover:text-white"
         >
           {text}
         </Link>

@@ -1,11 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { mintNft, testContract } from "../queries/collegeContract";
 import { showToast } from "../utils/toast";
 import { AccountContext } from "../context/AccountContext";
-import { CollegeNft } from "../types/college";
+import { CollegeNft, Transaction } from "../types/college";
+import TransactionModal from "./TransactionModal";
 
 const Colleges = (college: CollegeNft) => {
   const { currentAccount } = useContext(AccountContext);
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [transactionHash, setTransactionHash] = useState<Transaction | null>(
+    null
+  );
 
   const handleMintNft = async () => {
     if (currentAccount === null) {
@@ -13,11 +19,28 @@ const Colleges = (college: CollegeNft) => {
       return;
     }
 
-    mintNft(currentAccount, college.id, 1, "0x");
+    const tx = await mintNft(currentAccount, college.id, 1, "0x");
+
+    if (tx !== null) {
+      setTransactionHash(tx);
+      setIsModalVisible(true);
+    }
+  };
+
+  const handleCloseModalClick = () => {
+    setIsModalVisible(false);
+    setTransactionHash(null);
   };
 
   return (
     <div className="mx-auto grid grid-cols-1 place-items-center md:grid-cols-2 mb-4">
+      {isModalVisible && transactionHash && (
+        <TransactionModal
+          transaction={transactionHash}
+          handleCloseModalClick={handleCloseModalClick}
+        />
+      )}
+
       <div className="w-[512px] h-[512px] bg-black bg-opacity-60 backdrop-blur-xl rounded drop-shadow-2xl flex justify-center items-center">
         {college ? (
           <img src={college.image} alt="collegeNft" className="h-[80%]" />
@@ -59,7 +82,7 @@ const Colleges = (college: CollegeNft) => {
             </div>
             <button
               type="button"
-              className="p-4 bg-yellow rounded-lg mt-4 transition hover:bg-blue hover:text-white"
+              className="p-4 bg-yellow-400 rounded-lg mt-4 transition hover:bg-blue hover:text-white"
               onClick={handleMintNft}
             >
               Mint {college.symbol} NFT

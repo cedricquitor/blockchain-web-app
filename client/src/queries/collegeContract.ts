@@ -2,10 +2,6 @@ import { ethers } from "ethers";
 import College from "../utils/College.json";
 import { showToast } from "../utils/toast";
 
-interface MintNftParams {
-  (account: string, id: number, amount: number, data: string): void;
-}
-
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const signer = provider.getSigner();
 const contractAddress = import.meta.env.VITE_CONTRACT_ADDRESS;
@@ -23,12 +19,23 @@ export const testContract = async () => {
   }
 };
 
-export const mintNft: MintNftParams = async (account, id, amount, data) => {
+export const mintNft = async (
+  account: string,
+  id: number,
+  amount: number,
+  data: string
+) => {
   try {
     const tx = await contract.mint(account, id, amount, data);
-    showToast("success", "Minting success: " + tx.hash);
+    showToast("success", "Successfully minted NFT!");
+
+    const polygonScanUrl = `https://mumbai.polygonscan.com/tx/${tx.hash}`;
+    const openSeaUrl = `https://testnets.opensea.io/assets/mumbai/${contractAddress}/${id}`;
+
+    return { polygonScanUrl, openSeaUrl };
   } catch (error: any) {
-    console.log(error);
     showToast("error", error.reason);
   }
+
+  return null;
 };
