@@ -2,6 +2,8 @@ import { useEffect, useState, useContext } from "react";
 import { getNftDetail } from "../queries/jsonServer";
 import { mintNft, testContract } from "../queries/collegeContract";
 import { AccountContext } from "../context/AccountContext";
+import { ToastContainer } from "react-toastify";
+import { showToast } from "../utils/toast";
 
 interface TraitsProps {
   trait: string;
@@ -47,10 +49,12 @@ const Mint = () => {
   };
 
   const handleMintNft = async () => {
-    if (currentAccount !== null) {
-      const response = await mintNft(currentAccount, 6, 1, "0x");
-      console.log(response);
+    if (currentAccount === null) {
+      showToast("error", "Please connect your wallet first.");
+      return;
     }
+
+    mintNft(currentAccount, 6, 1, "0x");
   };
 
   useEffect(() => {
@@ -60,6 +64,8 @@ const Mint = () => {
 
   return (
     <div className="mt-24 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <ToastContainer />
+
       {/* College NFT Mint */}
       <div className="mx-auto grid grid-cols-1 place-items-center md:grid-cols-2">
         <div className="w-[512px] h-[512px] bg-black bg-opacity-60 backdrop-blur-xl rounded drop-shadow-2xl flex justify-center items-center">

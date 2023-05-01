@@ -1,5 +1,6 @@
 import { ethers } from "ethers";
 import College from "../utils/College.json";
+import { showToast } from "../utils/toast";
 
 interface MintNftParams {
   (account: string, id: number, amount: number, data: string): void;
@@ -25,8 +26,9 @@ export const testContract = async () => {
 export const mintNft: MintNftParams = async (account, id, amount, data) => {
   try {
     const tx = await contract.mint(account, id, amount, data);
-    console.log("mintNft Result: ", tx.hash);
-  } catch (error) {
-    console.error("mintNft Error: ", error);
+    showToast("success", "Minting success: " + tx.hash);
+  } catch (error: any) {
+    console.log(error);
+    showToast("error", error.reason);
   }
 };
