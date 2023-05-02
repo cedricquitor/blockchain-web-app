@@ -1,6 +1,7 @@
 import { ethers } from "ethers";
 import College from "../utils/College.json";
 import { showToast } from "../utils/toast";
+import { getEthersErrorMessage } from "../utils/errors";
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const signer = provider.getSigner();
@@ -33,8 +34,8 @@ export const mintNft = async (
     const openSeaUrl = `https://testnets.opensea.io/assets/mumbai/${contractAddress}/${id}`;
 
     return { polygonScanUrl, openSeaUrl };
-  } catch (error: any) {
-    showToast("error", error.reason);
+  } catch (error: unknown) {
+    showToast("error", getEthersErrorMessage(error));
   }
 
   return null;

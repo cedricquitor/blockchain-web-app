@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import colors from "tailwindcss/colors";
 
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -7,11 +6,7 @@ export default {
     fontFamily: {
       sans: "Inter, sans-serif",
     },
-    extend: {
-      colors: {
-        ...colors,
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };
