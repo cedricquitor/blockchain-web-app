@@ -33,6 +33,20 @@ git clone https://github.com/cedricquitor/blockchain-web-app.git
 - ALCHEMY_API_KEY: Contact collaborators or [@cedricquitor](https://github.com/cedricquitor/blockchain-web-app)
 - PRIVATE_KEY: Click [here](#how-to-get-your-metamask-private-key) for instructions on how to get your private key
 
+### How to deploy the smart contract in localhost
+1. Navigate to blockchain
+```bash
+cd blockchain
+```
+2. Start a local node
+```bash
+npx hardhat node
+```
+3. Open a new terminal and run the nft_deploy script using Hardhat
+```bash
+npm run deploy:localhost
+```
+
 ### How to deploy the smart contract in Polygon Mumbai testnet
 1. Navigate to blockchain
 ```bash
@@ -40,7 +54,7 @@ cd blockchain
 ```
 2. Run the nft_deploy script using Hardhat
 ```bash
-npx hardhat run scripts/nft_deploy.ts --network mumbai
+npm run deploy:mumbai
 ```
 
 ### How to get your MetaMask private key

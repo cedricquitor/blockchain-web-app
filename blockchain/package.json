@@ -1,5 +1,9 @@
 {
   "name": "blockchain-web-app-blockchain",
+  "scripts": {
+    "deploy:localhost": "npx hardhat run scripts/nft_deploy.ts --network localhost",
+    "deploy:mumbai": "npx hardhat run scripts/nft_deploy.ts --network mumbai"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
