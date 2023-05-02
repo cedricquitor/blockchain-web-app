@@ -74,7 +74,9 @@ npx hardhat run scripts/nft_deploy.ts --network mumbai
 
 ## React App - client
 ### Environment Variables
-- None so far
+- VITE_ALCHEMY_RPC_PROVIDER: Contact collaborators or [@cedricquitor](https://github.com/cedricquitor/blockchain-web-app)
+- VITE_CONTRACT_ADDRESS: Deploy the smart contract in Polygon Mumbai testnet ([*How to deploy the smart contract in Polygon Mumbai testnet*](#how-to-deploy-the-smart-contract-in-polygon-mumbai-testnet)) and copy and paste the contract address in your .env file.
+***Note**: Don't forget to replace the contract address if you redeploy your smart contract!*
 
 ### How to setup local dev environment
 1. Navigate to client
