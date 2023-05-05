@@ -19,13 +19,15 @@ const Mint = () => {
   }, []);
 
   return (
-    <div className="mt-24 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <>
       <ToastContainer />
-      {collegeNft &&
-        collegeNft.map((college: CollegeNft) => (
-          <Colleges key={college.id} {...college} />
-        ))}
-    </div>
+      <div className="mt-24 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        {collegeNft &&
+          collegeNft.map((college: CollegeNft) => (
+            <Colleges key={college.id} college={college} mint />
+          ))}
+      </div>
+    </>
   );
 };
 

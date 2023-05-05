@@ -3,6 +3,7 @@ import { AccountContextProvider } from "./context/AccountContext";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Mint from "./pages/Mint";
+import Burn from "./pages/Burn";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/mint" element={<Mint />} />
+          <Route path="/burn" element={<Burn />} />
         </Routes>
       </BrowserRouter>
     </AccountContextProvider>

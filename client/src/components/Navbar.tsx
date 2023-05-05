@@ -71,6 +71,7 @@ const Navbar = () => {
           <Navlink to="/" text="Home" />
           <Navlink to="/" text="About" />
           <Navlink to="/mint" text="Mint" />
+          <Navlink to="/burn" text="Burn" />
         </div>
       </div>
     </nav>

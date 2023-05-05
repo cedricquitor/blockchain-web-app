@@ -5,7 +5,14 @@ import { AccountContext } from "../context/AccountContext";
 import { CollegeNft, Transaction } from "../types/college";
 import TransactionModal from "./TransactionModal";
 
-const Colleges = (college: CollegeNft) => {
+interface CollegesProp {
+  college: CollegeNft;
+  mint?: boolean;
+}
+
+const Colleges = (props: CollegesProp) => {
+  const { college, mint } = props;
+
   const { currentAccount } = useContext(AccountContext);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -25,6 +32,10 @@ const Colleges = (college: CollegeNft) => {
       setTransactionHash(tx);
       setIsModalVisible(true);
     }
+  };
+
+  const handleBurnNft = () => {
+    console.log("TODO: Connect Burn NFT");
   };
 
   const handleCloseModalClick = () => {
@@ -83,9 +94,9 @@ const Colleges = (college: CollegeNft) => {
             <button
               type="button"
               className="p-4 bg-yellow-400 rounded-lg mt-4 transition hover:bg-blue hover:text-white"
-              onClick={handleMintNft}
+              onClick={mint ? handleMintNft : handleBurnNft}
             >
-              Mint {college.symbol} NFT
+              {mint ? "Mint" : "Burn"} {college.symbol} NFT
             </button>
           </div>
         ) : null}

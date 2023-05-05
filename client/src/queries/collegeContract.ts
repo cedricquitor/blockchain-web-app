@@ -40,3 +40,14 @@ export const mintNft = async (
 
   return null;
 };
+
+export const getOwnedNFT = async (account: string) => {
+  try {
+    const nftId = await contract.getOwnedNFT(account);
+    return parseInt(nftId);
+  } catch (error: unknown) {
+    showToast("error", getEthersErrorMessage(error));
+  }
+
+  return null;
+};

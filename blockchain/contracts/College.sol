@@ -72,6 +72,7 @@ contract College is ERC1155, Ownable {
         hasMinted[account] = false;
     }
 
+    // Define a function that check's NFT ownership
     function checkNFTOwnership(address account, uint256 id)
         public
         view
@@ -79,6 +80,17 @@ contract College is ERC1155, Ownable {
     {
         uint256 balance = balanceOf(account, id);
         return (balance > 0);
+    }
+
+    // Define a function that returns the ID of the user's owned NFT.
+    function getOwnedNFT(address account) public view returns (uint256) {
+        for (uint256 i = 1; i <= 17; i++) {
+            if (checkNFTOwnership(account, i)) {
+                return i;
+            }
+        }
+
+        return 0;
     }
 
     function test() public pure returns (string memory) {
