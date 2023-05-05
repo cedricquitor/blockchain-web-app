@@ -5,10 +5,10 @@ import { showToast } from "../utils/toast";
 import { ToastContainer } from "react-toastify";
 import { CollegeNft } from "../types/college";
 import { getNftDetail } from "../queries/jsonServer";
-import Colleges from "../components/Colleges";
 import ConnectWallet from "../components/ConnectWallet";
 import NoNFT from "../components/NoNFT";
 import Loading from "../components/Loading";
+import BurnCollege from "../components/BurnCollege";
 
 const Burn = () => {
   const { currentAccount } = useContext(AccountContext);
@@ -57,8 +57,11 @@ const Burn = () => {
           <ConnectWallet />
         ) : isLoading ? (
           <Loading />
-        ) : ownedNFT !== null && ownedId !== 0 ? (
-          <Colleges college={ownedNFT} mint={false} />
+        ) : ownedNFT !== null && ownedId !== 0 && ownedId !== null ? (
+          <BurnCollege
+            college={ownedNFT}
+            setOwnedNFT={setOwnedNFT}
+          />
         ) : (
           <NoNFT />
         )}

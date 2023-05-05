@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { getAllNftDetail } from "../queries/jsonServer";
 import { ToastContainer } from "react-toastify";
-import Colleges from "../components/Colleges";
 import { CollegeNft } from "../types/college";
 import Loading from "../components/Loading";
+import MintCollege from "../components/MintCollege";
 
 const Mint = () => {
   const [collegeNft, setCollegeNft] = useState<CollegeNft[] | null>(null);
@@ -34,7 +34,7 @@ const Mint = () => {
         ) : (
           collegeNft &&
           collegeNft.map((college: CollegeNft) => (
-            <Colleges key={college.id} college={college} mint />
+            <MintCollege key={college.id} college={college} />
           ))
         )}
       </div>

@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { ContractReceipt, ethers } from "ethers";
 import College from "../utils/College.json";
 import { showToast } from "../utils/toast";
 import { getEthersErrorMessage } from "../utils/errors";
@@ -50,4 +50,17 @@ export const getOwnedNFT = async (account: string) => {
   }
 
   return null;
+};
+
+export const burnNFT = async (account: string, id: number) => {
+  try {
+    const tx = await contract.burn(account, id, 1);
+    const receipt: ContractReceipt = await tx.wait();
+
+    if (receipt.status === 1) {
+      showToast("success", "Successfully burned NFT!");
+    }
+  } catch (error: unknown) {
+    showToast("error", getEthersErrorMessage(error));
+  }
 };

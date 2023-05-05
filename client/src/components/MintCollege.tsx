@@ -7,11 +7,10 @@ import TransactionModal from "./TransactionModal";
 
 interface CollegesProp {
   college: CollegeNft;
-  mint?: boolean;
 }
 
-const Colleges = (props: CollegesProp) => {
-  const { college, mint } = props;
+const MintCollege = (props: CollegesProp) => {
+  const { college } = props;
 
   const { currentAccount } = useContext(AccountContext);
 
@@ -32,10 +31,6 @@ const Colleges = (props: CollegesProp) => {
       setTransactionHash(tx);
       setIsModalVisible(true);
     }
-  };
-
-  const handleBurnNft = () => {
-    console.log("TODO: Connect Burn NFT");
   };
 
   const handleCloseModalClick = () => {
@@ -94,9 +89,9 @@ const Colleges = (props: CollegesProp) => {
             <button
               type="button"
               className="p-4 bg-yellow-400 rounded-lg mt-4 transition hover:bg-blue hover:text-white"
-              onClick={mint ? handleMintNft : handleBurnNft}
+              onClick={handleMintNft}
             >
-              {mint ? "Mint" : "Burn"} {college.symbol} NFT
+              Mint {college.symbol} NFT
             </button>
           </div>
         ) : null}
@@ -122,4 +117,4 @@ const Traits = (props: TraitsProps) => {
   );
 };
 
-export default Colleges;
+export default MintCollege;
