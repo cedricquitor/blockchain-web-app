@@ -23,7 +23,7 @@ describe("College contract", () => {
   it("should mint an NFT", async () => {
     const tx = await college.mint(deployer.address, 1, 1, []);
     await tx.wait();
-    expect(await college.hasUserMinted()).to.equal(true);
+    expect(await college.hasMinted(deployer.address)).to.equal(true);
   });
 
   it("should reject minting another NFT", async () => {
@@ -35,12 +35,12 @@ describe("College contract", () => {
   it("should burn an NFT", async () => {
     const tx = await college.burn(deployer.address, 1, 1);
     await tx.wait();
-    expect(await college.hasUserMinted()).to.equal(false);
+    expect(await college.hasMinted(deployer.address)).to.equal(false);
   });
 
   it("should allow re-minting after burning an NFT", async () => {
     const tx = await college.mint(deployer.address, 4, 1, []);
     await tx.wait();
-    expect(await college.hasUserMinted()).to.equal(true);
+    expect(await college.hasMinted(deployer.address)).to.equal(true);
   });
 });
