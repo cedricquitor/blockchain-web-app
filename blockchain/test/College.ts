@@ -43,4 +43,14 @@ describe("College contract", () => {
     await tx.wait();
     expect(await college.hasMinted(deployer.address)).to.equal(true);
   });
+
+  it("should check NFT ownership", async () => {
+    const tx = await college.checkNFTOwnership(deployer.address, 4);
+    expect(Boolean(tx)).to.equal(true);
+  });
+
+  it("should get the address' owned NFT", async () => {
+    const tx = await college.getOwnedNFT(deployer.address);
+    expect(tx.toString()).to.equal("4");
+  });
 });
