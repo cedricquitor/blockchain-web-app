@@ -35,6 +35,23 @@ contract College is ERC1155, Ownable {
             "https://my-json-server.typicode.com/cedricquitor/blockchain-web-app/colleges/{id}"
         )
     {
+        _mint(msg.sender, CICS, 1, "");
+        _mint(msg.sender, AMV_COA, 1, "");
+        _mint(msg.sender, Architecture, 1, "");
+        _mint(msg.sender, Arts_and_Letters, 1, "");
+        _mint(msg.sender, Civil_Law, 1, "");
+        _mint(msg.sender, CBA, 1, "");
+        _mint(msg.sender, CoE, 1, "");
+        _mint(msg.sender, FoE, 1, "");
+        _mint(msg.sender, CFAD, 1, "");
+        _mint(msg.sender, Medicine_and_Surgery, 1, "");
+        _mint(msg.sender, Music, 1, "");
+        _mint(msg.sender, Nursing, 1, "");
+        _mint(msg.sender, FoP, 1, "");
+        _mint(msg.sender, IPEA, 1, "");
+        _mint(msg.sender, CRS, 1, "");
+        _mint(msg.sender, CoS, 1, "");
+        _mint(msg.sender, CTHM, 1, "");
     }
 
     // Define a function to mint new tokens
