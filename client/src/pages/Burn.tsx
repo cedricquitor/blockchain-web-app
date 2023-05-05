@@ -6,6 +6,9 @@ import { ToastContainer } from "react-toastify";
 import { CollegeNft } from "../types/college";
 import { getNftDetail } from "../queries/jsonServer";
 import Colleges from "../components/Colleges";
+import ConnectWallet from "../components/ConnectWallet";
+import NoNFT from "../components/NoNFT";
+import Loading from "../components/Loading";
 
 const Burn = () => {
   const { currentAccount } = useContext(AccountContext);
@@ -51,13 +54,13 @@ const Burn = () => {
       <ToastContainer />
       <div className="mt-24 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {currentAccount === null ? (
-          <p>Connect your MetaMask wallet first!</p>
+          <ConnectWallet />
         ) : isLoading ? (
-          <p>Fetching data...</p>
+          <Loading />
         ) : ownedNFT !== null && ownedId !== 0 ? (
           <Colleges college={ownedNFT} mint={false} />
         ) : (
-          <p>You don't own any NFTs!</p>
+          <NoNFT />
         )}
       </div>
     </>

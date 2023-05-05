@@ -3,13 +3,20 @@ import { getAllNftDetail } from "../queries/jsonServer";
 import { ToastContainer } from "react-toastify";
 import Colleges from "../components/Colleges";
 import { CollegeNft } from "../types/college";
+import Loading from "../components/Loading";
 
 const Mint = () => {
   const [collegeNft, setCollegeNft] = useState<CollegeNft[] | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getCollegeNft = async () => {
+    setIsLoading(true);
+
     const response = await getAllNftDetail();
+
     setCollegeNft(response);
+    setIsLoading(false);
+
     console.log(response);
   };
 
@@ -22,10 +29,14 @@ const Mint = () => {
     <>
       <ToastContainer />
       <div className="mt-24 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        {collegeNft &&
+        {isLoading ? (
+          <Loading />
+        ) : (
+          collegeNft &&
           collegeNft.map((college: CollegeNft) => (
             <Colleges key={college.id} college={college} mint />
-          ))}
+          ))
+        )}
       </div>
     </>
   );
