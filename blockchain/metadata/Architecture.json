@@ -3,7 +3,7 @@
   "name": "College of Architecture",
   "symbol": "Architecture",
   "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/College-of-Architecture.png?alt=media&token=c9d60174-2da5-479a-b038-c736a6b58a5c",
-  "description": "This token represents membership for the College of Architecture.",
+  "description": "This token represents membership for the College of Architecture",
   "attributes": [
     {
       "trait_type": "College",

@@ -16,13 +16,10 @@ const Mint = () => {
 
     setCollegeNft(response);
     setIsLoading(false);
-
-    console.log(response);
   };
 
   useEffect(() => {
     getCollegeNft();
-    console.log(import.meta.env.VITE_TEST_ENV);
   }, []);
 
   return (

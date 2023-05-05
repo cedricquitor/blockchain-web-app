@@ -61,8 +61,11 @@ export const burnNFT = async (account: string, id: number) => {
     const tx = await contract.burn(account, id, 1);
     const receipt: ContractReceipt = await tx.wait();
 
+    console.log(receipt);
+
     if (receipt.status === 1) {
       showToast("success", "Successfully burned NFT!");
+      return receipt.status;
     }
   } catch (error: unknown) {
     showToast("error", getEthersErrorMessage(error));

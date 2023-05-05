@@ -10,7 +10,6 @@ const Navbar = () => {
   const ethereum = window.ethereum;
 
   const connectToWallet = async () => {
-    console.log(currentAccount);
     try {
       if (!ethereum) {
         return;

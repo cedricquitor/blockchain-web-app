@@ -3,7 +3,7 @@
   "name": "College of Information and Computing Sciences",
   "symbol": "CICS",
   "image": "https://firebasestorage.googleapis.com/v0/b/ust-voting-blockchain-web-app.appspot.com/o/Institute-of-Information-and-Computing-Sciences.png?alt=media&token=3339f592-0264-4019-b182-09d8de341bef",
-  "description": "This token represents membership for the College of Information and Computing Sciences of the University of Santo Tomas.",
+  "description": "This token represents membership for the College of Information and Computing Sciences of the University of Santo Tomas",
   "attributes": [
     {
       "trait_type": "College",

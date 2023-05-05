@@ -17,51 +17,39 @@ const Burn = () => {
   const [ownedNFT, setOwnedNFT] = useState<CollegeNft | null>(null);
   const [ownedId, setOwnedId] = useState<number | null>(null);
 
-  const getUserOwnedNFT = async () => {
-    if (currentAccount === null) {
+  const fetchOwnedNFTData = async () => {
+    setIsLoading(true);
+
+    if (!currentAccount) {
       showToast("error", "Please connect your wallet first.");
       return;
     }
 
     const response = await getOwnedNFT(currentAccount);
     setOwnedId(response);
-  };
 
-  const getUserOwnedNFTData = async () => {
-    if (ownedId === null || ownedId === 0) {
-      return;
+    if (response) {
+      const nftData = await getNftDetail(response);
+      setOwnedNFT(nftData);
     }
 
-    const response = await getNftDetail(ownedId);
-    setOwnedNFT(response);
+    setIsLoading(false);
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-
-      await getUserOwnedNFT();
-      await getUserOwnedNFTData();
-
-      setIsLoading(false);
-    };
-
-    fetchData();
-  }, [currentAccount, ownedId]);
+    fetchOwnedNFTData();
+  }, [currentAccount]);
 
   return (
     <>
       <ToastContainer />
       <div className="mt-24 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        {currentAccount === null ? (
+        {!currentAccount ? (
           <ConnectWallet />
         ) : isLoading ? (
           <Loading />
-        ) : ownedNFT !== null && ownedId !== 0 && ownedId !== null ? (
-          <BurnCollege
-            college={ownedNFT}
-            setOwnedNFT={setOwnedNFT}
-          />
+        ) : ownedNFT && ownedId ? (
+          <BurnCollege college={ownedNFT} setOwnedNFT={setOwnedNFT} />
         ) : (
           <NoNFT />
         )}
