@@ -28,12 +28,16 @@ export const mintNft = async (
 ) => {
   try {
     const tx = await contract.mint(account, id, amount, data);
-    showToast("success", "Successfully minted NFT!");
+    const receipt: ContractReceipt = await tx.wait();
 
-    const polygonScanUrl = `https://mumbai.polygonscan.com/tx/${tx.hash}`;
-    const openSeaUrl = `https://testnets.opensea.io/assets/mumbai/${contractAddress}/${id}`;
+    if (receipt.status === 1) {
+      showToast("success", "Successfully minted NFT!");
 
-    return { polygonScanUrl, openSeaUrl };
+      const polygonScanUrl = `https://mumbai.polygonscan.com/tx/${tx.hash}`;
+      const openSeaUrl = `https://testnets.opensea.io/assets/mumbai/${contractAddress}/${id}`;
+
+      return { polygonScanUrl, openSeaUrl };
+    }
   } catch (error: unknown) {
     showToast("error", getEthersErrorMessage(error));
   }
