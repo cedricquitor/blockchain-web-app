@@ -9,25 +9,25 @@ contract College is ERC1155, Ownable {
     string public name = "BOTOmasino";
 
     // Define some token IDs as constants
-    uint256 public constant CICS = 1;
-    uint256 public constant AMV_COA = 2;
-    uint256 public constant Architecture = 3;
-    uint256 public constant Arts_and_Letters = 4;
-    uint256 public constant Civil_Law = 5;
-    uint256 public constant CBA = 6;
-    uint256 public constant CoE = 7;
-    uint256 public constant FoE = 8;
-    uint256 public constant CFAD = 9;
-    uint256 public constant Medicine_and_Surgery = 10;
-    uint256 public constant Music = 11;
-    uint256 public constant Nursing = 12;
-    uint256 public constant FoP = 13;
-    uint256 public constant IPEA = 14;
-    uint256 public constant CRS = 15;
-    uint256 public constant CoS = 16;
-    uint256 public constant CTHM = 17;
+    uint256 internal constant CICS = 1;
+    uint256 internal constant AMV_COA = 2;
+    uint256 internal constant Architecture = 3;
+    uint256 internal constant Arts_and_Letters = 4;
+    uint256 internal constant Civil_Law = 5;
+    uint256 internal constant CBA = 6;
+    uint256 internal constant CoE = 7;
+    uint256 internal constant FoE = 8;
+    uint256 internal constant CFAD = 9;
+    uint256 internal constant Medicine_and_Surgery = 10;
+    uint256 internal constant Music = 11;
+    uint256 internal constant Nursing = 12;
+    uint256 internal constant FoP = 13;
+    uint256 internal constant IPEA = 14;
+    uint256 internal constant CRS = 15;
+    uint256 internal constant CoS = 16;
+    uint256 internal constant CTHM = 17;
 
-    mapping(address => bool) public hasMinted;
+    mapping(address => bool) internal hasMinted;
 
     // Define the constructor function
     constructor()
@@ -50,7 +50,7 @@ contract College is ERC1155, Ownable {
         // Make sure the user has only one NFT
         require(
             hasMinted[account] == false,
-            "User has already minted an NFT!"
+            "You've already minted an NFT!"
         );
 
         // Call the _mint function from the ERC1155 contract
@@ -96,4 +96,68 @@ contract College is ERC1155, Ownable {
     function test() public pure returns (string memory) {
         return "Connected to College smart contract!";
     }
+
+    // Define Candidate Struct
+    struct Candidate {
+        string name;
+        string program;
+        string imageUrl;
+        uint256 voteCount;
+	}
+
+
+    mapping(uint256 => Candidate) internal candidates;
+    uint256 internal candidateCount = 0;
+
+    // Define a function to add a candidate
+    function addCandidate(string memory _name, string memory _program, string memory _imageUrl) public {
+        require(msg.sender == owner(), "Only the contract owner can add candidates!");
+
+        candidateCount++;
+
+        candidates[candidateCount] = Candidate({
+            name: _name,
+            program: _program,
+            imageUrl: _imageUrl,
+            voteCount: 0
+        });
+    }
+
+    // Define a function to remove a candidate
+    function removeCandidate(uint256 _id) public {
+        require(msg.sender == owner(), "Only the contract owner can remove candidates!");
+        require(_id > 0 && _id <= candidateCount, "Invalid candidate ID");
+
+        for (uint256 i = _id; i < candidateCount; i++) {
+            candidates[i] = candidates[i + 1];
+        }
+
+        candidateCount--;
+        delete candidates[candidateCount + 1];
+    }
+
+    // Define a function to get all candidates
+    function getAllCandidates() public view returns (Candidate[] memory) {
+        Candidate[] memory allCandidates = new Candidate[](candidateCount);
+
+        for (uint256 i = 1; i <= candidateCount; i++) {
+            allCandidates[i - 1] = candidates[i];
+        }
+
+        return allCandidates;
+    }
+
+    // Define a function to vote for a candidate
+    function voteCandidate(uint256 _id) public {
+        require(hasMinted[msg.sender], "You must have an NFT to vote.");
+        require(_id > 0 && _id <= candidateCount, "Invalid candidate ID");
+
+        candidates[_id].voteCount++;
+    }
 }
+
+/**
+ * TODO:
+ * - Limit to 1 vote per user
+ * - Function to reset voting
+ */
