@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AccountContextProvider } from "./context/AccountContext";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
+import Vote from "./pages/Vote";
 import Mint from "./pages/Mint";
 import Burn from "./pages/Burn";
 
@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Vote />} />
           <Route path="/mint" element={<Mint />} />
           <Route path="/burn" element={<Burn />} />
         </Routes>

@@ -67,8 +67,7 @@ const Navbar = () => {
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
           id="navbar-sticky"
         >
-          <Navlink to="/" text="Home" />
-          <Navlink to="/" text="About" />
+          <Navlink to="/" text="Vote" />
           <Navlink to="/mint" text="Mint" />
           <Navlink to="/burn" text="Burn" />
         </div>
