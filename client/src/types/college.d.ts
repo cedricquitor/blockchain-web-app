@@ -20,6 +20,6 @@ export interface Transaction {
 export interface Candidate {
   name: string;
   program: string;
-  image: string;
+  imageUrl: string;
   votes: number;
 }

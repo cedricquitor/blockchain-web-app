@@ -93,12 +93,14 @@ export const getAllCandidates = async () => {
   try {
     const tx = await contract.getAllCandidates();
 
-    const candidates: Candidate[] = tx.map((candidate: any) => {
+    const candidates: Candidate[] = tx.map((candidate: Candidate) => {
+      console.log(candidate.imageUrl);
+
       return {
-        name: candidate[0],
-        program: candidate[1],
-        image: candidate[2],
-        votes: parseInt(candidate[3].toString()),
+        name: candidate.name,
+        program: candidate.program,
+        imageUrl: candidate.imageUrl,
+        votes: candidate.votes,
       };
     });
 

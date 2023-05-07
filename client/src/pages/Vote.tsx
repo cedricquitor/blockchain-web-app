@@ -15,16 +15,16 @@ const Vote = () => {
   const handleAddCandidateClick = async (
     name: string,
     program: string,
-    image_url: string
+    imageUrl: string
   ) => {
-    const status = await addCandidate(name, program, image_url);
+    const status = await addCandidate(name, program, imageUrl);
 
     if (status) {
       setCandidates((prevCandidates) => {
         const newCandidate: CandidateType = {
           name,
           program,
-          image: image_url,
+          imageUrl,
           votes: 0,
         };
 
