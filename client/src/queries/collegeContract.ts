@@ -94,8 +94,6 @@ export const getAllCandidates = async () => {
     const tx = await contract.getAllCandidates();
 
     const candidates: Candidate[] = tx.map((candidate: Candidate) => {
-      console.log(candidate.imageUrl);
-
       return {
         name: candidate.name,
         program: candidate.program,
@@ -134,6 +132,16 @@ export const endVoting = async () => {
       showToast("success", "Voting has ended!");
       return receipt.status;
     }
+  } catch (error: unknown) {
+    showToast("error", getEthersErrorMessage(error));
+  }
+};
+
+export const getContractOwnerAddress = async () => {
+  try {
+    const tx = await contract.owner();
+
+    return tx.toLowerCase();
   } catch (error: unknown) {
     showToast("error", getEthersErrorMessage(error));
   }
