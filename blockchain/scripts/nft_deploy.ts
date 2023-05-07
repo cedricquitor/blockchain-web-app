@@ -1,5 +1,4 @@
 import { ethers } from "hardhat";
-import { expect } from "chai";
 import { ALCHEMY_API_KEY, PRIVATE_KEY } from "../constants";
 
 const MUMBAI_RPC_URL = `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_API_KEY}`;
