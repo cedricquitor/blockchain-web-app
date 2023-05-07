@@ -17,7 +17,7 @@ const Candidate = (props: CandidateProps) => {
   };
 
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow w-[18rem] m-1">
+    <div className="w-11/12 bg-white border border-gray-200 rounded-lg shadow md:max-w-[18rem] mb-4 md:m-2">
       <img
         className="rounded-t-lg max-h-72 object-cover w-full"
         src={candidate.image}

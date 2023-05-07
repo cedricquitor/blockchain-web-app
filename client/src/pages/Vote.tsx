@@ -64,7 +64,13 @@ const Vote = () => {
     <>
       <ToastContainer />
       <div className="mt-24 max-w-screen-xl flex flex-col flex-wrap justify-between mx-auto">
-        <div className="flex gap-2">
+        <h2 className="mx-4 text-2xl font-extrabold md:mx-0">Actions</h2>
+        <p className="text-justify mx-4 mb-2 text-md text-gray-500 md:mx-0">
+          Here is a list of the available admin actions for the voting page.
+          Please note that this section is only visible to you as an
+          administrator, and not to other users.
+        </p>
+        <div className="mx-4 flex gap-2 md:mx-0">
           {/* TODO: Hide buttons if address != contract deployer address */}
           {/* TODO: Input form for add candidate */}
           <button
@@ -97,7 +103,13 @@ const Vote = () => {
           </button>
         </div>
 
-        <div className="flex flex-wrap justify-center">
+        <h2 className="mx-4 text-2xl font-extrabold md:mx-0">Candidates</h2>
+        <p className="text-justify mx-4 mb-2 text-md text-gray-500 md:mx-0">
+          Here is the list of candidates for the current election. To be
+          eligible to vote, you must own an NFT. Also, please note that you can
+          only vote for one person.
+        </p>
+        <div className="flex flex-wrap justify-center mb-4 md:justify-evenly">
           {candidates &&
             candidates.map((candidate, index) => (
               <Candidate key={index} id={index} candidate={candidate} />

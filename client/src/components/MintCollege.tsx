@@ -47,12 +47,14 @@ const MintCollege = (props: CollegesProp) => {
         />
       )}
 
-      <div className="w-[512px] h-[512px] bg-black bg-opacity-60 backdrop-blur-xl rounded drop-shadow-2xl flex justify-center items-center">
-        <img src={college.image} alt="collegeNft" className="h-[80%]" />
+      <div className="w-11/12 h-11/12 md:w-[512px] md:h-[512px] bg-black bg-opacity-60 backdrop-blur-xl rounded drop-shadow-2xl flex justify-center items-center">
+        <img src={college.image} alt="collegeNft" className="p-9 md:p-28" />
       </div>
-      <div>
-        <div>
-          <h1 className="font-bold text-2xl">{college.name}</h1>
+      <div className="flex items-center justify-center w-full">
+        <div className="w-11/12">
+          <h1 className="mt-4 md:mt-0 font-bold text-2xl text-justify">
+            {college.name}
+          </h1>
           <div className="flex items-center space-x-4">
             <h2 className="text-xl text-gray-400">{college.symbol}</h2>
             <button
@@ -63,8 +65,8 @@ const MintCollege = (props: CollegesProp) => {
               View on OpenSea
             </button>
           </div>
-          <p className="mt-4">{college.description}.</p>
-          <p className="mt-4">
+          <p className="mt-4 text-justify">{college.description}.</p>
+          <p className="mt-4 text-justify">
             With this NFT, you are able to participate in {college.name}
             's local election and the University of Santo Tomas Central Student
             Council (UST CSC) election.
