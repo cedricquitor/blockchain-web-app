@@ -16,3 +16,10 @@ export interface Transaction {
   polygonScanUrl: string;
   openSeaUrl: string;
 }
+
+export interface Candidate {
+  name: string;
+  program: string;
+  image: string;
+  votes: number;
+}
