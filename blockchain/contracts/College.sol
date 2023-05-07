@@ -128,7 +128,7 @@ contract College is ERC1155, Ownable {
     // Define a function to remove a candidate
     function removeCandidate(uint256 _id) public {
         require(msg.sender == owner(), "Only the contract owner can remove candidates!");
-        require(_id > 0 && _id <= candidateCount, "Invalid candidate ID");
+        require(_id > 0 && _id <= candidateCount, "Invalid candidate ID!");
 
         for (uint256 i = _id; i < candidateCount; i++) {
             candidates[i] = candidates[i + 1];
@@ -152,8 +152,8 @@ contract College is ERC1155, Ownable {
     // Define a function to vote for a candidate
     function voteCandidate(uint256 _id) public {
         require(!hasVoted[msg.sender], "You've already voted!");
-        require(hasMinted[msg.sender], "You must have an NFT to vote.");
-        require(_id > 0 && _id <= candidateCount, "Invalid candidate ID");
+        require(hasMinted[msg.sender], "You must have an NFT to vote!");
+        require(_id > 0 && _id <= candidateCount, "Invalid candidate ID!");
 
         candidates[_id].voteCount++;
 
@@ -163,7 +163,7 @@ contract College is ERC1155, Ownable {
 
     // Define a function to reset voting
     function resetVoting() public {
-        require(msg.sender == owner(), "Only the contract owner can reset the contract.");
+        require(msg.sender == owner(), "Only the contract owner can reset the contrac!");
         // Reset candidates
         for (uint256 i = 1; i <= candidateCount; i++) {
             delete candidates[i];
