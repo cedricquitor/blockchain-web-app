@@ -163,7 +163,7 @@ contract College is ERC1155, Ownable {
 
     // Define a function to reset voting
     function resetVoting() public {
-        require(msg.sender == owner(), "Only the contract owner can reset the contrac!");
+        require(msg.sender == owner(), "Only the contract owner can reset the contract!");
         // Reset candidates
         for (uint256 i = 1; i <= candidateCount; i++) {
             delete candidates[i];
