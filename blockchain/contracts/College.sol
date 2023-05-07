@@ -105,9 +105,11 @@ contract College is ERC1155, Ownable {
         uint256 voteCount;
 	}
 
-
     mapping(uint256 => Candidate) internal candidates;
     uint256 internal candidateCount = 0;
+
+    mapping(address => bool) public hasVoted;
+    address[] voters;
 
     // Define a function to add a candidate
     function addCandidate(string memory _name, string memory _program, string memory _imageUrl) public {
@@ -149,15 +151,29 @@ contract College is ERC1155, Ownable {
 
     // Define a function to vote for a candidate
     function voteCandidate(uint256 _id) public {
+        require(!hasVoted[msg.sender], "You've already voted!");
         require(hasMinted[msg.sender], "You must have an NFT to vote.");
         require(_id > 0 && _id <= candidateCount, "Invalid candidate ID");
 
         candidates[_id].voteCount++;
+
+        hasVoted[msg.sender] = true;
+        voters.push(msg.sender);
+    }
+
+    // Define a function to reset voting
+    function resetVoting() public {
+        require(msg.sender == owner(), "Only the contract owner can reset the contract.");
+        // Reset candidates
+        for (uint256 i = 1; i <= candidateCount; i++) {
+            delete candidates[i];
+        }
+        candidateCount = 0;
+
+        // Reset voters
+        for (uint256 i = 0; i < voters.length; i++) {
+            delete hasVoted[voters[i]];
+        }
+        delete voters;
     }
 }
-
-/**
- * TODO:
- * - Limit to 1 vote per user
- * - Function to reset voting
- */
