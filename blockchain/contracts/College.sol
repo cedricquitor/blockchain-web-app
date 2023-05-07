@@ -176,4 +176,23 @@ contract College is ERC1155, Ownable {
         }
         delete voters;
     }
+
+    // Define a function to get the winner
+    function endVoting() public returns (Candidate memory) {
+        require(msg.sender == owner(), "Only the contract owner can end the voting!");
+        require(candidateCount > 0, "There are no candidates!");
+        require(voters.length > 0, "No one has voted yet!");
+
+        Candidate memory winner = candidates[1];
+
+        for (uint256 i = 2; i <= candidateCount; i++) {
+            if (candidates[i].voteCount > winner.voteCount) {
+                winner = candidates[i];
+            }
+        }
+
+        resetVoting();
+
+        return winner;
+    }
 }
