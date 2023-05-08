@@ -12,10 +12,9 @@ This project is still a work in progress, click [here](#todos) to view the list 
 ### client TODO's
 Candidate.tsx
 - Add remove candidate button and connect it to the smart contract.
-- Hide the remove candidadate button for non-admins.
+- Hide the remove candidate button for non-admins.
 
 Vote.tsx
-- Create an input form for adding candidates.
 - Show a modal that displays the winner(s) of the election.
 - Call resetVoting() after displaying the winner(s) of the election.
 

@@ -1,6 +1,5 @@
 import { ToastContainer } from "react-toastify";
 import {
-  addCandidate,
   endVoting,
   getAllCandidates,
   getContractOwnerAddress,
@@ -11,35 +10,14 @@ import { Candidate as CandidateType } from "../types/college";
 import Candidate from "../components/Candidate";
 import { AccountContext } from "../context/AccountContext";
 import ConnectWallet from "../components/ConnectWallet";
+import InputModal from "../components/InputModal";
 
 const Vote = () => {
   const [candidates, setCandidates] = useState<CandidateType[] | null>(null);
   const [contractOwner, setContractOwner] = useState<string | null>(null);
+  const [isInputFormVisible, setIsInputFormVisible] = useState(false);
 
   const { currentAccount } = useContext(AccountContext);
-
-  const handleAddCandidateClick = async (
-    name: string,
-    program: string,
-    imageUrl: string
-  ) => {
-    const status = await addCandidate(name, program, imageUrl);
-
-    if (status) {
-      setCandidates((prevCandidates) => {
-        const newCandidate: CandidateType = {
-          name,
-          program,
-          imageUrl,
-          voteCount: 0,
-        };
-
-        return prevCandidates
-          ? [...prevCandidates, newCandidate]
-          : [newCandidate];
-      });
-    }
-  };
 
   const fetchAllCandidates = async () => {
     const candidates = await getAllCandidates();
@@ -56,8 +34,11 @@ const Vote = () => {
   };
 
   const handleResetVotingClick = async () => {
-    await resetVoting();
-    setCandidates(null);
+    const status = await resetVoting();
+
+    if (status) {
+      setCandidates(null);
+    }
   };
 
   const handleEndVotingClick = async () => {
@@ -81,6 +62,14 @@ const Vote = () => {
   return (
     <>
       <ToastContainer />
+
+      {isInputFormVisible && (
+        <InputModal
+          setCandidates={setCandidates}
+          setIsInputFormVisible={setIsInputFormVisible}
+        />
+      )}
+
       <div className="mt-24 max-w-screen-xl flex flex-col flex-wrap justify-between mx-auto">
         {currentAccount ? (
           contractOwner && currentAccount === contractOwner ? (
@@ -92,17 +81,10 @@ const Vote = () => {
                 administrator, and not to other users.
               </p>
               <div className="mx-4 flex gap-2 md:mx-0">
-                {/* TODO: Input form for add candidate */}
                 <button
                   type="button"
                   className="mb-4 bg-black text-white inline-flex items-center font-medium justify-center px-4 py-2 text-sm rounded-lg cursor-pointer transition hover:bg-yellow-400 hover:text-black"
-                  onClick={() =>
-                    handleAddCandidateClick(
-                      "Jane Doe",
-                      "CICS",
-                      "https://this-person-does-not-exist.com/img/avatar-gen11792fc8282653a19763e6e736e8b2c8.jpg"
-                    )
-                  }
+                  onClick={() => setIsInputFormVisible(true)}
                 >
                   Add Candidate
                 </button>
@@ -136,7 +118,7 @@ const Vote = () => {
               eligible to vote, you must own an NFT. Also, please note that you
               can only vote for one person.
             </p>
-            <div className="flex flex-wrap justify-center mb-4 md:justify-evenly">
+            <div className="flex flex-wrap justify-center mb-4">
               {candidates.map((candidate, index) => (
                 <Candidate key={index} id={index} candidate={candidate} />
               ))}

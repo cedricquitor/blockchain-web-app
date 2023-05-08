@@ -115,6 +115,7 @@ export const resetVoting = async () => {
 
     if (receipt.status === 1) {
       showToast("success", "Voting has been reset!");
+      return receipt.status;
     }
   } catch (error: unknown) {
     showToast("error", getEthersErrorMessage(error));
