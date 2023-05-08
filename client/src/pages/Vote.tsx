@@ -10,7 +10,6 @@ import { useContext, useEffect, useState } from "react";
 import { Candidate as CandidateType } from "../types/college";
 import Candidate from "../components/Candidate";
 import { AccountContext } from "../context/AccountContext";
-import { showToast } from "../utils/toast";
 import ConnectWallet from "../components/ConnectWallet";
 
 const Vote = () => {
@@ -32,7 +31,7 @@ const Vote = () => {
           name,
           program,
           imageUrl,
-          votes: 0,
+          voteCount: 0,
         };
 
         return prevCandidates
@@ -62,13 +61,14 @@ const Vote = () => {
   };
 
   const handleEndVotingClick = async () => {
-    const status = await endVoting();
+    const winner = await endVoting();
 
-    if (status) {
-      setCandidates(null);
+    if (winner) {
+      // TODO: Show winner(s)
+      console.log(winner);
+
+      // TODO: Reset voting after showing winner(s)
     }
-
-    // TODO: Show election winner
   };
 
   useEffect(() => {

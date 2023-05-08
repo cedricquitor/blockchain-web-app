@@ -21,5 +21,5 @@ export interface Candidate {
   name: string;
   program: string;
   imageUrl: string;
-  votes: number;
+  voteCount: number;
 }

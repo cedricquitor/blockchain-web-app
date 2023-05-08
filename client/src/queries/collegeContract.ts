@@ -98,7 +98,7 @@ export const getAllCandidates = async () => {
         name: candidate.name,
         program: candidate.program,
         imageUrl: candidate.imageUrl,
-        votes: candidate.votes,
+        voteCount: Number(candidate.voteCount),
       };
     });
 
@@ -124,14 +124,17 @@ export const resetVoting = async () => {
 export const endVoting = async () => {
   try {
     const tx = await contract.endVoting();
-    const receipt: ContractReceipt = await tx.wait();
 
-    console.log(tx);
+    const winner: Candidate[] = tx.map((candidate: Candidate) => {
+      return {
+        name: candidate.name,
+        program: candidate.program,
+        imageUrl: candidate.imageUrl,
+        voteCount: Number(candidate.voteCount),
+      };
+    });
 
-    if (receipt.status === 1) {
-      showToast("success", "Voting has ended!");
-      return receipt.status;
-    }
+    return winner;
   } catch (error: unknown) {
     showToast("error", getEthersErrorMessage(error));
   }
@@ -142,6 +145,21 @@ export const getContractOwnerAddress = async () => {
     const tx = await contract.owner();
 
     return tx.toLowerCase();
+  } catch (error: unknown) {
+    showToast("error", getEthersErrorMessage(error));
+  }
+};
+
+export const voteCandidate = async (id: number) => {
+  try {
+    const tx = await contract.voteCandidate(id);
+    const receipt: ContractReceipt = await tx.wait();
+
+    if (receipt.status === 1) {
+      showToast("success", "Successfully voted!");
+    }
+
+    return receipt.status;
   } catch (error: unknown) {
     showToast("error", getEthersErrorMessage(error));
   }

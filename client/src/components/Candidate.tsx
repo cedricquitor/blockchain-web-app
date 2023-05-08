@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { voteCandidate } from "../queries/collegeContract";
 import { Candidate } from "../types/college";
 
 interface CandidateProps {
@@ -8,12 +10,17 @@ interface CandidateProps {
 const Candidate = (props: CandidateProps) => {
   const { id, candidate } = props;
 
+  const [voteCount, setVoteCount] = useState(candidate.voteCount);
+
   // TODO: Add remove candidate button + functionality
   // TODO: Hide remove button if address != contract deployer address
 
-  // TODO: Connect vote button to smart contract
-  const handleVoteClick = async () => {
-    console.log("TODO: Connect vote button to smart contract - " + id);
+  const handleVoteClick = async (id: number) => {
+    const status = await voteCandidate(id);
+
+    if (status) {
+      setVoteCount(voteCount + 1);
+    }
   };
 
   return (
@@ -24,12 +31,15 @@ const Candidate = (props: CandidateProps) => {
         alt="candidate"
       />
       <div className="p-5">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+        <h5 className="text-2xl font-bold tracking-tight text-gray-900">
           {candidate.name}
         </h5>
-        <p className="mb-3 font-normal text-gray-700">{candidate.program}</p>
+        <p className="mb-3 font-normal text-gray-700 italic">
+          {candidate.program}
+        </p>
+        <p className="mb-3 font-normal text-gray-700">Votes: {voteCount}</p>
         <button
-          onClick={handleVoteClick}
+          onClick={() => handleVoteClick(id + 1)}
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300"
         >
           Vote
