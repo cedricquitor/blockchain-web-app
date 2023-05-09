@@ -120,7 +120,13 @@ const Vote = () => {
             </p>
             <div className="flex flex-wrap justify-center mb-4">
               {candidates.map((candidate, index) => (
-                <Candidate key={index} id={index} candidate={candidate} />
+                <Candidate
+                  key={index}
+                  id={index}
+                  candidate={candidate}
+                  candidates={candidates}
+                  setCandidates={setCandidates}
+                />
               ))}
             </div>
           </>

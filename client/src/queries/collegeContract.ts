@@ -89,6 +89,20 @@ export const addCandidate = async (
   }
 };
 
+export const removeCandidate = async (id: number) => {
+  try {
+    const tx = await contract.removeCandidate(id);
+    const receipt: ContractReceipt = await tx.wait();
+
+    if (receipt.status === 1) {
+      showToast("success", `Successfully removed candidate!`);
+      return receipt.status;
+    }
+  } catch (error: unknown) {
+    showToast("error", getEthersErrorMessage(error));
+  }
+};
+
 export const getAllCandidates = async () => {
   try {
     const tx = await contract.getAllCandidates();
