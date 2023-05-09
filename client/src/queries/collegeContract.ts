@@ -153,6 +153,8 @@ export const endVoting = async () => {
   } catch (error: unknown) {
     showToast("error", getEthersErrorMessage(error));
   }
+
+  return null;
 };
 
 export const getContractOwnerAddress = async () => {

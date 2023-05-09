@@ -11,11 +11,16 @@ import Candidate from "../components/Candidate";
 import { AccountContext } from "../context/AccountContext";
 import ConnectWallet from "../components/ConnectWallet";
 import InputModal from "../components/InputModal";
+import WinnerModal from "../components/WinnerModal";
 
 const Vote = () => {
   const [candidates, setCandidates] = useState<CandidateType[] | null>(null);
   const [contractOwner, setContractOwner] = useState<string | null>(null);
+
+  const [winner, setWinner] = useState<CandidateType[] | null>(null);
+
   const [isInputFormVisible, setIsInputFormVisible] = useState(false);
+  const [isWinnerVisible, setIsWinnerVisible] = useState(false);
 
   const { currentAccount } = useContext(AccountContext);
 
@@ -43,12 +48,11 @@ const Vote = () => {
 
   const handleEndVotingClick = async () => {
     const winner = await endVoting();
+    setWinner(winner);
 
     if (winner) {
-      // TODO: Show winner(s)
-      console.log(winner);
-
-      // TODO: Reset voting after showing winner(s)
+      setIsWinnerVisible(true);
+      handleResetVotingClick();
     }
   };
 
@@ -68,6 +72,10 @@ const Vote = () => {
           setCandidates={setCandidates}
           setIsInputFormVisible={setIsInputFormVisible}
         />
+      )}
+
+      {isWinnerVisible && (
+        <WinnerModal winner={winner} setIsWinnerVisible={setIsWinnerVisible} />
       )}
 
       <div className="mt-24 max-w-screen-xl flex flex-col flex-wrap justify-between mx-auto">
