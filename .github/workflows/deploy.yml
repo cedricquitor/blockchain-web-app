@@ -35,6 +35,10 @@ jobs:
           cache-dependency-path: "client/package-lock.json"
       - name: Install dependencies
         run: npm install
+      - name: Set up .env variables
+        run: |
+          echo "VITE_ALCHEMY_RPC_PROVIDER=${{ secrets.VITE_ALCHEMY_RPC_PROVIDER }}" > .env
+          echo "VITE_CONTRACT_ADDRESS=${{ secrets.VITE_CONTRACT_ADDRESS }}" >> .env
       - name: Build
         run: npm run build
       - name: Setup Pages
